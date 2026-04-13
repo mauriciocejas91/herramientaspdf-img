@@ -1,0 +1,9 @@
+pywebview==6.1
+pypdf==6.10.0
+pdf2docx==0.5.12
+docx2pdf==0.1.8
+PyMuPDF==1.27.2.2
+pillow==12.2.0
+rembg==2.0.75
+onnxruntime==1.24.4
+requests==2.33.1

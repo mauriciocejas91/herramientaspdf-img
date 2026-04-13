@@ -1,0 +1,256 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
+body { 
+    font-family: 'Inter', sans-serif; 
+    background: #DAD9DE; 
+    margin: 0; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+#app {
+    width: 100%;
+    max-width: 750px;
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    padding: 40px;
+    position: relative;
+    box-sizing: border-box;
+}
+
+/* Sistema de Vistas */
+.view { display: none; }
+.view.active { display: block; animation: fadeIn 0.3s ease; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+/* Títulos */
+h1 { color: #222; text-align: center; margin-top: 0; margin-bottom: 30px; font-weight: 700;}
+
+/* Menú Principal */
+.grid-menu { 
+    display: grid; 
+    grid-template-columns: 1fr 1fr; 
+    gap: 20px; 
+}
+
+.menu-card { 
+    background: #f8f9fa; 
+    border: 2px solid #DAD9DE;
+    padding: 30px 20px; 
+    border-radius: 12px; 
+    text-align: center; 
+    cursor: pointer; 
+    transition: all 0.2s;
+}
+
+.menu-card:hover { 
+    border-color: #5F64E0; 
+    background: #f4f5ff; 
+    transform: translateY(-3px); 
+}
+
+.menu-card h2 { color: #5F64E0; margin: 0 0 10px 0; font-size: 20px;}
+.menu-card p { color: #666; margin: 0; font-size: 14px;}
+
+/* Área de Trabajo */
+.btn-back { 
+    background: none; border: none; color: #666; 
+    cursor: pointer; font-size: 14px; font-weight: 600; 
+    padding: 0; margin-bottom: 20px; 
+}
+.btn-back:hover { color: #5F64E0; }
+
+.workspace { display: flex; flex-direction: column; gap: 20px; }
+
+/* Lista de Archivos */
+.file-list { 
+    background: #f8f9fa; 
+    border-radius: 8px; 
+    padding: 20px; 
+    min-height: 150px; 
+    border: 2px dashed #DAD9DE;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.empty-state { text-align: center; color: #888; margin: auto; font-size: 15px;}
+
+.file-item { 
+    display: flex; justify-content: space-between; align-items: center;
+    background: white; padding: 12px 15px; 
+    border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.03); 
+    border: 1px solid #eee;
+}
+
+.file-name { font-size: 14px; font-weight: 600; color: #444; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; max-width: 70%;}
+
+.item-controls { display: flex; gap: 5px; }
+
+.btn-icon { 
+    background: #DAD9DE; border: none; border-radius: 4px; 
+    width: 28px; height: 28px; cursor: pointer; 
+    font-weight: bold; color: #333; display: flex; justify-content: center; align-items: center;
+}
+.btn-icon:hover:not(:disabled) { background: #cfced4; }
+.btn-icon:disabled { opacity: 0.4; cursor: not-allowed; }
+.btn-icon.delete { background: #ff4d4f; color: white; }
+.btn-icon.delete:hover { background: #e04345; }
+
+/* Botones Inferiores */
+.actions { display: flex; gap: 15px; justify-content: center; }
+
+button.btn-primary, button.btn-secondary { 
+    font-family: 'Inter', sans-serif; font-size: 15px; font-weight: 600; 
+    padding: 14px 28px; border-radius: 8px; cursor: pointer; border: none; transition: opacity 0.2s; 
+}
+button:hover { opacity: 0.9; }
+
+.btn-primary { background: #5F64E0; color: white; }
+.btn-secondary { background: #DAD9DE; color: #333; }
+
+/* Mensajes de Estado */
+#status { text-align: center; font-weight: 600; white-space: pre-wrap; font-size: 14px; }
+#status.success { color: #5F64E0; }
+#status.error { color: #ff4d4f; }
+
+/* Acciones de éxito */
+/* Acciones de éxito */
+.success-actions {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 10px;
+    padding-top: 20px;
+    border-top: 1px dashed #DAD9DE;
+}
+
+button.btn-secondary.outline {
+    background: transparent;
+    border: 2px solid #DAD9DE;
+    color: #444;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;    /* Centra verticalmente el texto y el SVG */
+    justify-content: center;
+    gap: 8px;               /* Espacio perfecto entre el icono y el texto */
+    transition: all 0.2s ease;
+}
+
+/* Color inicial del icono */
+button.btn-secondary.outline svg {
+    color: #666;
+    transition: color 0.2s ease;
+}
+
+/* Efecto Hover: Todo cambia al color de acento */
+button.btn-secondary.outline:hover {
+    border-color: #5F64E0;
+    color: #5F64E0;
+    background: #f4f5ff; /* Un fondo azul muy sutil */
+}
+
+/* El icono también toma el color de acento en hover */
+button.btn-secondary.outline:hover svg {
+    color: #5F64E0;
+}
+/* Efecto visual al arrastrar archivos sobre la app */
+#app.drag-active {
+    box-shadow: 0 0 0 4px #5F64E0 inset, 0 10px 30px rgba(0,0,0,0.1);
+    background-color: #f4f5ff;
+    transition: all 0.2s ease;
+}
+
+/* Estilos para el Drag & Drop */
+.file-list {
+    transition: all 0.2s ease;
+}
+
+.file-list.dragover {
+    background-color: #f4f5ff;
+    border-color: #5F64E0;
+    border-width: 2px;
+    border-style: dashed;
+    transform: scale(1.02);
+}
+
+.file-list::before {
+    content: "Suelta los archivos aquí";
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-weight: 600;
+    color: #5F64E0;
+    pointer-events: none;
+}
+
+.file-list.dragover::before {
+    display: block;
+}
+
+.file-list.dragover > * {
+    opacity: 0.2; /* Oculta los archivos actuales mientras arrastras */
+}
+
+/* Estilos para los iconos del menú principal */
+.card-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 15px;
+    color: #5F64E0; /* Color de acentuación de los SVGs */
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Efecto de rebote suave */
+}
+
+/* El icono crece un poco cuando haces hover sobre toda la tarjeta */
+.menu-card:hover .card-icon {
+    transform: scale(1.15);
+}
+/* Panel de opciones (Selector de formato) */
+.options-panel {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    background: #f8f9fa;
+    padding: 15px;
+    border-radius: 8px;
+    border: 1px solid #DAD9DE;
+}
+
+.options-panel label {
+    font-size: 14px;
+    font-weight: 600;
+    color: #444;
+}
+
+.options-panel select {
+    padding: 8px 15px;
+    border-radius: 6px;
+    border: 1px solid #DAD9DE;
+    font-family: inherit;
+    font-size: 14px;
+    outline: none;
+    cursor: pointer;
+}
+
+.options-panel select:focus {
+    border-color: #5F64E0;
+}
+
+.section-title {
+    text-align: left;
+    color: #666;
+    font-size: 16px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 40px;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #DAD9DE;
+    padding-bottom: 5px;
+}
