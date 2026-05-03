@@ -4,7 +4,7 @@ import platform
 import subprocess
 import json
 import base64
-from functions import unir_pdfs, separar_pdf, pdf_a_word, word_a_pdf, comprimir_pdf, pdf_a_imagen, comprimir_imagen, quitar_fondo
+from functions import unir_pdfs, separar_pdf, pdf_a_word, word_a_pdf, comprimir_pdf, pdf_a_imagen, comprimir_imagen, quitar_fondo, recortar_interactivo, agregar_marca_agua_texto, agregar_marca_agua_imagen
 from webview.dom import DOMEventHandler
 
 class API:
@@ -16,7 +16,7 @@ class API:
         else:
             tipos_permitidos = ('Archivos PDF (*.pdf)',)
             
-        files = window.create_file_dialog(webview.OPEN_DIALOG, allow_multiple=multiple, file_types=tipos_permitidos)
+        files = window.create_file_dialog(webview.FileDialog.OPEN, allow_multiple=multiple, file_types=tipos_permitidos)
         return files if files else []
 
     def ejecutar_unir(self, rutas):
@@ -74,12 +74,10 @@ class API:
     def ejecutar_pdf_imagen(self, rutas, formato):
         if not rutas:
             return {"status": "error", "message": "No hay archivo seleccionado."}
-        # Crea una carpeta específica para las imágenes resultantes
         carpeta_salida = os.path.join(os.path.dirname(rutas[0]), f"PDF_a_{formato.upper()}")
         return pdf_a_imagen(rutas[0], carpeta_salida, formato)
     
     # FUNCIONES IMAGENES
-
     def ejecutar_comprimir_img(self, rutas, calidad):
         if not rutas:
             return {"status": "error", "message": "No hay archivo seleccionado."}
@@ -93,7 +91,6 @@ class API:
             return {"status": "error", "message": "No hay archivo seleccionado."}
         
         nombre_base, _ = os.path.splitext(rutas[0])
-        # Forzamos la salida a .png para la transparencia
         output_path = f"{nombre_base}_sin_fondo.png"
         return quitar_fondo(rutas[0], output_path)
     
@@ -117,27 +114,34 @@ class API:
         output_path = f"{nombre_base}_recortada{ext}"
         from functions import recortar_interactivo
         return recortar_interactivo(rutas[0], output_path, x, y, width, height)
+        
+    def ejecutar_marca_agua_texto(self, rutas, texto, color, fuente, posicion):
+        if not rutas:
+            return {"status": "error", "message": "No hay archivo seleccionado."}
+        
+        nombre_base, ext = os.path.splitext(rutas[0])
+        output_path = f"{nombre_base}_firmada{ext}"
+        return agregar_marca_agua_texto(rutas[0], output_path, texto, color, fuente, posicion)
+
+    def ejecutar_marca_agua_imagen(self, rutas, ruta_logo, posicion):
+        if not rutas:
+            return {"status": "error", "message": "No hay archivo seleccionado."}
+        
+        nombre_base, ext = os.path.splitext(rutas[0])
+        output_path = f"{nombre_base}_con_logo{ext}"
+        return agregar_marca_agua_imagen(rutas[0], output_path, ruta_logo, posicion)
 
 api = API()
 
-window = webview.create_window(
-    'Herramientas PDF', 
-    url='index.html', 
-    js_api=api, 
-    width=850, 
-    height=650
-)
+window = webview.create_window('Herramientas PDF', url='index.html', js_api=api, width=850, height=650)
 
 def on_drag(e):
     pass
 
 def on_drop(e):
     files = e['dataTransfer']['files']
-    if len(files) == 0:
-        return
-    
+    if len(files) == 0: return
     rutas = [file.get('pywebviewFullPath') for file in files if file.get('pywebviewFullPath')]
-    
     if rutas:
         rutas_json = json.dumps(rutas)
         window.evaluate_js(f"recibirArchivosDePython({rutas_json})")

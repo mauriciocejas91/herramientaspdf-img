@@ -1,22 +1,25 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <title>Herramientas Pro</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="style.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.13/cropper.min.css" rel="stylesheet">
 </head>
+
 <body>
     <div id="app">
         <div id="menu-view" class="view active">
             <h1>Herramientas PDF/Imagenes</h1>
-            
+
             <h3 class="section-title">PDF</h3>
             <div class="grid-menu">
+
                 <div class="menu-card" onclick="openTool('unir')">
                     <div class="card-icon">
-                        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
                             <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
                         </svg>
@@ -24,10 +27,11 @@
                     <h2>Unir PDFs</h2>
                     <p>Combina PDFs en el orden que quieras</p>
                 </div>
-                
+
                 <div class="menu-card" onclick="openTool('separar')">
                     <div class="card-icon">
-                        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <circle cx="6" cy="6" r="3"></circle>
                             <circle cx="6" cy="18" r="3"></circle>
                             <line x1="20" y1="4" x2="8.12" y2="15.88"></line>
@@ -38,23 +42,25 @@
                     <h2>Separar PDF</h2>
                     <p>Extrae cada página en un PDF distinto</p>
                 </div>
-                
+
                 <div class="menu-card" onclick="openTool('pdf_a_word')">
                     <div class="card-icon">
-                        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M14 2H6a2 2 0 0 0-2 2v16c0 1.1.9 2 2 2h12a2 2 0 0 0 2-2V8l-6-6z"/>
-                            <path d="M14 3v5h5M12 11v6M9 14l3 3 3-3"/>
+                        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16c0 1.1.9 2 2 2h12a2 2 0 0 0 2-2V8l-6-6z" />
+                            <path d="M14 3v5h5M12 11v6M9 14l3 3 3-3" />
                         </svg>
                     </div>
                     <h2>PDF a Word</h2>
                     <p>Convierte documentos PDF a DOCX editables</p>
                 </div>
-                
+
                 <div class="menu-card" onclick="openTool('word_a_pdf')">
                     <div class="card-icon">
-                        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M14 2H6a2 2 0 0 0-2 2v16c0 1.1.9 2 2 2h12a2 2 0 0 0 2-2V8l-6-6z"/>
-                            <path d="M14 3v5h5M12 17v-6M9 14l3-3 3 3"/>
+                        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16c0 1.1.9 2 2 2h12a2 2 0 0 0 2-2V8l-6-6z" />
+                            <path d="M14 3v5h5M12 17v-6M9 14l3-3 3 3" />
                         </svg>
                     </div>
                     <h2>Word a PDF</h2>
@@ -63,8 +69,13 @@
 
                 <div class="menu-card" onclick="openTool('comprimir')">
                     <div class="card-icon">
-                        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M8 3v3a2 2 0 0 1-2 2H3m18 0h-3a2 2 0 0 1-2-2V3m0 18v-3a2 2 0 0 1 2-2h3M3 16h3a2 2 0 0 1 2 2v3"/>
+                        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"></path>
+                            <line x1="12" y1="2" x2="12" y2="13"></line>
+                            <line x1="10" y1="4" x2="14" y2="4"></line>
+                            <line x1="10" y1="8" x2="14" y2="8"></line>
+                            <rect x="11" y="13" width="2" height="3" rx="0.5"></rect>
                         </svg>
                     </div>
                     <h2>Comprimir PDF</h2>
@@ -73,10 +84,11 @@
 
                 <div class="menu-card" onclick="openTool('pdf_a_img')">
                     <div class="card-icon">
-                        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
-                            <circle cx="8.5" cy="8.5" r="1.5"/>
-                            <polyline points="21 15 16 10 5 21"/>
+                        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
+                            <circle cx="8.5" cy="8.5" r="1.5" />
+                            <polyline points="21 15 16 10 5 21" />
                         </svg>
                     </div>
                     <h2>PDF a Imagen</h2>
@@ -89,9 +101,12 @@
 
                 <div class="menu-card" onclick="openTool('comprimir_img')">
                     <div class="card-icon">
-                        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
-                            <path d="M8 12h8m-4-4v8"/>
+                        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"></path>
+                            <rect x="9" y="6" width="8" height="6" rx="1"></rect>
+                            <circle cx="11.5" cy="8.5" r="1"></circle>
+                            <path d="M9 12l2.5-2.5L14 12"></path>
                         </svg>
                     </div>
                     <h2>Comprimir imagen</h2>
@@ -100,16 +115,22 @@
 
                 <div class="menu-card" onclick="openTool('quitar_fondo')">
                     <div class="card-icon">
-                        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+                        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="12" cy="7" r="4"></circle>
+                            <line x1="2" y1="2" x2="6" y2="6" stroke-dasharray="2 2" opacity="0.4"></line>
+                            <line x1="22" y1="2" x2="18" y2="6" stroke-dasharray="2 2" opacity="0.4"></line>
                         </svg>
                     </div>
                     <h2>Quitar fondo</h2>
                     <p>Elimina el fondo usando IA y exporta a PNG transparente</p>
                 </div>
+
                 <div class="menu-card" onclick="openTool('crop_img')">
                     <div class="card-icon">
-                        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M6 2v14a2 2 0 0 0 2 2h14"></path>
                             <path d="M18 22V8a2 2 0 0 0-2-2H2"></path>
                         </svg>
@@ -117,15 +138,30 @@
                     <h2>Recortar imagen</h2>
                     <p>Dibuja el recuadro exacto que quieres conservar</p>
                 </div>
+
+                <div class="menu-card" onclick="openTool('marca_agua')">
+                    <div class="card-icon">
+                        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M4 22h16"></path>
+                            <path d="M7 22v-6a5 5 0 0 1 10 0v6"></path>
+                            <path d="M12 16v-8"></path>
+                            <path d="M9 8h6a2 2 0 0 0 2-2V4H7v2a2 2 0 0 0 2 2z"></path>
+                        </svg>
+                    </div>
+                    <h2>Marca de Agua</h2>
+                    <p>Firma tus imágenes con texto o logo PNG</p>
+                </div>
             </div>
         </div>
 
         <div id="tool-view" class="view">
             <button class="btn-back" onclick="goBack()">← Volver al menú</button>
             <h1 id="tool-title">Herramienta</h1>
-            
+
             <div class="workspace">
                 <div id="options-panel" class="options-panel" style="display: none;">
+
                     <div id="opt-format" style="display: none;">
                         <label>Formato de salida:</label>
                         <select id="img-format">
@@ -133,52 +169,86 @@
                             <option value="png">PNG</option>
                         </select>
                     </div>
-                    
+
                     <div id="opt-quality" style="display: none; align-items: center; gap: 10px;">
                         <label>Calidad (<span id="quality-val">60</span>%):</label>
-                        <input type="range" id="img-quality" min="10" max="100" value="60" oninput="document.getElementById('quality-val').innerText = this.value">
+                        <input type="range" id="img-quality" min="10" max="100" value="60"
+                            oninput="document.getElementById('quality-val').innerText = this.value">
                     </div>
 
-                    <div id="opt-resize" style="display: none; align-items: center; gap: 10px; flex-wrap: wrap;">
-                        <label>Ancho (px):</label>
-                        <input type="number" id="resize-w" style="width: 80px; padding: 6px; border: 1px solid #DAD9DE; border-radius: 4px;" placeholder="1920">
-                        
-                        <label>Alto (px):</label>
-                        <input type="number" id="resize-h" style="width: 80px; padding: 6px; border: 1px solid #DAD9DE; border-radius: 4px;" placeholder="1080">
-                        
-                        <select id="resize-mode" style="margin-left: 10px;">
-                            <option value="fit">Ajustar (Mantiene proporción)</option>
-                            <option value="crop">Recortar Centro (Exacto)</option>
-                            <option value="stretch">Estirar (Ignora proporción)</option>
-                        </select>
+                    <div id="opt-watermark"
+                        style="display: none; flex-direction: column; gap: 15px; width: 100%; padding: 15px; background: white; border-radius: 8px; border: 1px dashed #DAD9DE;">
+                        <div style="display: flex; gap: 10px; align-items: center; flex-wrap: wrap;">
+                            <label>Tipo de firma:</label>
+                            <select id="wm-mode"
+                                style="padding: 6px; border: 1px solid #DAD9DE; border-radius: 4px; font-weight: 600; color: #5F64E0;"
+                                onchange="toggleWatermarkMode()">
+                                <option value="texto">Texto</option>
+                                <option value="imagen">Imagen (Logo PNG)</option>
+                            </select>
+
+                            <label style="margin-left: 10px;">Posición:</label>
+                            <select id="wm-pos" style="padding: 6px; border: 1px solid #DAD9DE; border-radius: 4px;">
+                                <option value="bottom-right">Abajo - Derecha</option>
+                                <option value="bottom-left">Abajo - Izquierda</option>
+                                <option value="top-right">Arriba - Derecha</option>
+                                <option value="top-left">Arriba - Izquierda</option>
+                                <option value="center">Centro</option>
+                            </select>
+                        </div>
+
+                        <!-- Opciones de Texto -->
+                        <div id="wm-text-opts" style="display: flex; gap: 10px; align-items: center; flex-wrap: wrap;">
+                            <input type="text" id="wm-text"
+                                style="padding: 6px; border: 1px solid #DAD9DE; border-radius: 4px; flex-grow: 1; min-width: 200px;"
+                                placeholder="Escribe tu marca de agua...">
+                            <input type="color" id="wm-color" value="#ffffff"
+                                style="cursor:pointer; border:none; width:32px; height:32px; padding:0; border-radius: 4px;">
+                            <select id="wm-font" style="padding: 6px; border: 1px solid #DAD9DE; border-radius: 4px;">
+                                <option value="arial">Arial (Moderna)</option>
+                                <option value="times">Times New Roman (Clásica)</option>
+                                <option value="courier">Courier (Máquina de escribir)</option>
+                            </select>
+                        </div>
+
+                        <!-- Opciones de Imagen -->
+                        <div id="wm-img-opts" style="display: none; gap: 10px; align-items: center; flex-wrap: wrap;">
+                            <button class="btn-secondary outline" style="padding: 6px 12px; font-size: 13px;"
+                                onclick="seleccionarLogo()">📂 Cargar Logo</button>
+                            <span id="logo-name" style="font-size: 13px; color: #666; font-weight: normal;">Ningún logo
+                                seleccionado...</span>
+                        </div>
                     </div>
                 </div>
-                
+
                 <div id="crop-container" style="display: none; width: 100%; max-height: 400px; margin-bottom: 20px;">
                     <img id="crop-image" style="max-width: 100%; display: block;">
                 </div>
-                
+
                 <div id="file-list" class="file-list"></div>
-                
+
                 <div class="actions">
                     <button class="btn-secondary" onclick="addFiles()">+ Añadir archivos</button>
                     <button id="btn-process" class="btn-primary" onclick="process()">Procesar</button>
                 </div>
-                
+
                 <div id="status"></div>
-                
+
                 <div id="success-actions" class="success-actions" style="display: none;">
                     <button id="btn-view-file" class="btn-secondary outline" onclick="abrirArchivo()">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/>
-                            <circle cx="12" cy="12" r="3"/>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z" />
+                            <circle cx="12" cy="12" r="3" />
                         </svg>
                         Ver archivo
                     </button>
-                    
+
                     <button class="btn-secondary outline" onclick="abrirCarpeta()">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z"/>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path
+                                d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z" />
                         </svg>
                         Abrir carpeta
                     </button>
@@ -190,4 +260,5 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.13/cropper.min.js"></script>
     <script src="script.js"></script>
 </body>
+
 </html>
